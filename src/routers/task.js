@@ -8,4 +8,16 @@ router.get('/tasks', async (req, res) => {
     res.status(200).send(tasks)
 });
 
+router.post('/task', async (req, res) => {
+    
+    const task = new Task(req.body)
+
+    try {
+        await task.save()
+        res.status(200).send()
+    } catch (e) {
+        res.status(400).send(e)
+    }
+});
+
 module.exports = router;
