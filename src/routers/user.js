@@ -84,4 +84,8 @@ router.delete('/users/profile', auth, async (req, res) => {
     }
 });
 
+router.get('/checkToken', auth, function(req, res) {
+    res.send(200);
+});
+
 module.exports = router;
